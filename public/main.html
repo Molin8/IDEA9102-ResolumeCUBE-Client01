@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SnowmanUserInterface</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">  
+  	<script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+  	<script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+  	<script language="javascript" type="text/javascript" src="libraries/p5.geolocation.js"></script>
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="content">
+        <p class="instructions">Choose the decorations you like</p>
+        <div class="wrap">
+          <h3 class="category-name">Hat</h3>
+          <div class="row">
+            <div id="item-one" class="icon-placeholder icon-wrapper">
+              <img src="assets/MiningCap.png" alt="Icon 1">
+            </div>
+            <div id="item-two" class="icon-placeholder icon-wrapper">
+              <img src="assets/fishingCap.png" alt="Icon 2">
+            </div>
+          </div>
+          <h3 class="category-name">Arm</h3>
+          <div class="row">
+            <div id="item-three" class="icon-placeholder icon-wrapper">
+              <img src="assets/shovel.png" alt="Icon 3">
+            </div>
+            <div id="item-four" class="icon-placeholder icon-wrapper">
+              <img src="assets/twig.png" alt="Icon 4">
+            </div>
+          </div>
+          <h3 class="category-name">Scarf</h3>
+          <div class="row">
+            <div id="item-five" class="icon-placeholder icon-wrapper">
+              <img src="assets/MAPMIMA.png" alt="Icon 5">
+            </div>
+            <div id="item-six" class="icon-placeholder icon-wrapper">
+              <img src="assets/LakeMacquarie.png" alt="Icon 6">
+            </div>
+          </div>
+          <h3 class="category-name">Buttons</h3>
+          <div class="row">
+            <div id="item-seven" class="icon-placeholder icon-wrapper">
+              <img src="assets/Parrot.png" alt="Icon 7">
+            </div>
+            <div id="item-eight" class="icon-placeholder icon-wrapper">
+              <img src="assets/NetBBoat.png" alt="Icon 8">
+            </div>
+          </div>   
+        </div> 
+        <button class="finish-button">FINISH</button>
+        <script>
+          document.querySelector('.finish-button').addEventListener('click', function() {
+            // Trigger a specific layer in Resolume
+            loadClip(18, 1); // load the finish sound effect
+            loadClip(19, 1); // load the snow flake effect
+            // Redirect to end.html
+            window.location.href = 'end.html';
+          });
+        </script>        
+      </div>
+    </div>
+  </body>
+</html>

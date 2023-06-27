@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Echoes of Frost Journey</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <!-- <div id="welcome-text">Welcome to the world of echoes of frost</div>
+    <div id="decoration-text">Swipe down to decorate your snowman.</div> -->
+
+    <script>
+        let circleX, circleY, circleRadius;
+        let arrowSize;
+        let circleGrowing = false;
+        let bgColor;
+        let myFont;
+
+        function preload() {
+            myFont = loadFont('assets/Montserrat.ttf');
+        }
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight);       
+            bgColor = color(255); // white background
+            circleX = windowWidth / 2;
+            circleY = windowHeight * 0.65;
+            circleRadius = min(windowWidth, windowHeight) * 0.2;
+            arrowSize = circleRadius * 0.5;
+        }
+
+        function draw() {
+            background(bgColor);
+
+            fill(0);  // Set the text color to black
+            noStroke();
+            textSize(24);  // Set the text size to 24
+            textAlign(CENTER, CENTER);
+            textFont('myFont');
+            text("Welcome to Echoes of Frost", windowWidth / 2, windowHeight * 0.3);  // Display the text
+
+            textSize(20);  // Set the text size to 20
+            text("Swipe down to start your journey...", windowWidth / 2, windowHeight * 0.35);  // Display the text
+
+            if (!circleGrowing) {
+                drawCircle();
+                drawArrow();
+            } else {
+                growCircle();
+            }
+        }
+
+        function drawCircle() {
+            fill('rgba(206, 224, 232, 1)'); // Set the circle color to #95AFBF
+            noStroke();
+            ellipse(circleX, circleY, circleRadius * 2);
+}
+
+        function drawArrow() {
+            stroke(0);
+            strokeWeight(3);
+            
+            // Calculate the starting point of the arrow on the circle's edge
+            let arrowStartY = circleY + circleRadius * cos(radians(270));
+            
+            // Extend the middle line to be 3 times its current length
+            let middleLineLength = arrowSize * 3;
+
+            // Make the side lines half their current length
+            let sideLineLength = arrowSize * 0.25;
+
+            line(circleX, arrowStartY, circleX, arrowStartY + middleLineLength);
+            line(circleX, arrowStartY + middleLineLength, circleX - sideLineLength, arrowStartY + middleLineLength * 0.9);
+            line(circleX, arrowStartY + middleLineLength, circleX + sideLineLength, arrowStartY + middleLineLength * 0.9);
+    
+        }
+
+
+        function growCircle() {
+            circleRadius += 20;
+            drawCircle();
+
+            if (circleRadius >= max(windowWidth, windowHeight) * 1.5) {
+            // Set the background color to #95AFBF before navigating to index.html
+            bgColor = color('rgba(206, 224, 232, 1)');
+            window.location.href = 'main.html';
+    }
+}
+
+        function mousePressed() {
+            if (dist(mouseX, mouseY, circleX, circleY) <= circleRadius) {   
+                circleGrowing = true;
+            }
+        }
+    </script>
+</body>
+</html>

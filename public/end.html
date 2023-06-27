@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decorate Finished</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="end-container">
+        <h1>Decorate finished!</h1>
+        <div class="button-wrapper">
+            <button id="share-facebook">Share on Facebook</button>
+            <button id="share-twitter">Share on Twitter</button>
+            <button id="Save-as-Image">Save as Image</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('share-facebook').addEventListener('click', function() {
+            let shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href);
+            window.open(shareUrl, '_blank');
+        });
+
+        document.getElementById('share-twitter').addEventListener('click', function() {
+            let shareUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href);
+            window.open(shareUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
